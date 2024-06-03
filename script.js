@@ -17,14 +17,22 @@ function apply(e) {
   section.setAttribute("class", "box");
   div.setAttribute("title", "Element");
   section.setAttribute("title", "Element");
+  let i = 1;
+  div.setAttribute("id", `id-${i}`);
+  section.setAttribute("id", `id-${i}`);
   if (type === "Div") {
-    for (let i = 1; i <= number.value; i++) {
+    for (let i = 1; i <= number.value; ) {
+      i++;
       container.appendChild(div.cloneNode(true));
       let id = `id-${i}`;
       div.setAttribute("id", id);
     }
   } else if (type === "Section") {
-    for (let i = 1; i <= number.value; i++)
+    for (let i = 1; i <= number.value; ) {
+      i++;
       container.appendChild(section.cloneNode(true));
+      let id = `id-${i}`;
+      section.setAttribute("id", id);
+    }
   }
 }
